@@ -1,0 +1,87 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "typeahead-react-component",
+        "scope": null,
+        "escapedName": "typeahead-react-component",
+        "name": "typeahead-react-component",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      }
+    ]
+  ],
+  "_from": "typeahead-react-component@latest",
+  "_id": "typeahead-react-component@0.9.0",
+  "_inCache": true,
+  "_location": "/react-typeahead-component",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "name": "Anish.M.Prasad",
+    "email": "anishmprasad@gmail.com"
+  },
+  "_npmVersion": "2.11.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "typeahead-react-component",
+    "scope": null,
+    "escapedName": "typeahead-react-component",
+    "name": "typeahead-react-component",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "",
+  "_shasum": "c7c39943c02349d420ef8342e5ea05e45ad5d3b4",
+  "_shrinkwrap": null,
+  "_spec": "react-typeahead-component",
+  "_where": "/Users/ghost/Documents/elasticsearch-react-example",
+  "author": {
+    "name": "Anish M Prasad",
+    "email": "anishmprasad@gmail.com"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "dependencies": {},
+  "description": "Typeahead, written using the React ES6 library.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "c7c39943c02349d420ef8342e5ea05e45ad5d3b4",
+    "tarball": ""
+  },
+  "homepage": "https://github.com/ezequiel/react-typeahead-component#readme",
+  "keywords": [
+    "react",
+    "reactjs",
+    "typeahead",
+    "autocomplete",
+    "react-component",
+    "component"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "Anish.M.Prasad",
+      "email": "anishmprasad@gmail.com"
+    }
+  ],
+  "name": "typeahead-react-component",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": ">=0.15.0"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anishmprasad/typeahead-react-component.git"
+  },
+  "scripts": {},
+  "version": "0.9.0"
+}
