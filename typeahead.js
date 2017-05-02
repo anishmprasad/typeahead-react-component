@@ -114,7 +114,6 @@ export default class  Typeahead extends React.Component{
             }
 
     componentWillMount() {
-        debugger;
         var _this = this,
             uniqueId = this.constructor.getInstanceCount();
 
@@ -338,6 +337,7 @@ export default class  Typeahead extends React.Component{
     }
 
     showHint() {
+        debugger;
         var _this = this,
             props = _this.props,
             inputValue = props.inputValue,
@@ -574,6 +574,25 @@ Typeahead.propTypes = {
         optionTemplate: PropTypes.func.isRequired,
         getMessageForOption: PropTypes.func,
         getMessageForIncomingOptions: PropTypes.func
+    }
+
+    Typeahead.defaultProps = {
+        className: '',
+        inputValue: '',
+        options: [],
+        hoverSelect: true,
+        onFocus: noop,
+        onKeyDown: noop,
+        onChange: noop,
+        onInputClick: noop,
+        handleHint() {
+            return '';
+        },
+        onOptionClick: noop,
+        onOptionChange: noop,
+        onComplete:  noop,
+        onDropdownOpen: noop,
+        onDropdownClose: noop,
     }
 
  module.exports = Typeahead;

@@ -3,7 +3,7 @@
 // var React = require('react'),
 // ReactDOM = require('react-dom');
 import React from 'react';
-import ReactDom from 'react-dom'; 
+import ReactDOM from 'react-dom'; 
 import PropTypes from 'prop-types';
 
 export default class  Input extends React.Component{
