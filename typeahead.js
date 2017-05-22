@@ -164,7 +164,7 @@ export default class  Typeahead extends React.Component{
         
         return (
             <div className="react-typeahead-input-container" style={{position:'relative'}} >
-               <input
+               <Input style = {{ color: 'silver', WebkitTextFillColor: 'silver', position: 'absolute' }}
                    type="text"
                    disabled= "true"
                     role= "presentation"
@@ -174,7 +174,7 @@ export default class  Typeahead extends React.Component{
                     
                     value={ state.isHintVisible ? props.handleHint(inputValue, props.options) : ''}
                    />
-                 <input className= {className + ' react-typeahead-usertext'} style= {{ position: 'relative', background: 'transparent'}}
+                 <Input className= {className + ' react-typeahead-usertext'} style= {{ position: 'relative', background: 'transparent'}}
                     ref = "input"
                     role = "combobox"
                     aria-owns = {_this.optionsId}

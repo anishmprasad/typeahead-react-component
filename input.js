@@ -10,10 +10,6 @@ export default class  Input extends React.Component{
     static displayName: 'Input'
     constructor(props) {
         super(props);
-        this.state = {
-            value: '',
-            onChange: function() {}
-        }
         this.handleChange = this.handleChange.bind(this);
         this.blur = this.blur.bind(this);
         this.isCursorAtEnd = this.isCursorAtEnd.bind(this);
@@ -50,9 +46,7 @@ export default class  Input extends React.Component{
             React.createElement("input", Object.assign({}, 
                 _this.props, 
                 {
-                onChange: _this.handleChange,
-                type: "text",
-                value: ""
+                onChange: _this.handleChange
                 })
             )
 //            <Input
@@ -80,6 +74,7 @@ export default class  Input extends React.Component{
     }
 
     isCursorAtEnd() {
+//        debugger;
         var _this = this,
             inputDOMNode = ReactDOM.findDOMNode(_this),
             valueLength = _this.props.value.length;
@@ -93,3 +88,11 @@ Input.propTypes = {
         value: PropTypes.string,
         onChange: PropTypes.func
     }
+
+Input.defaultProps = {
+        value: '',
+        onChange: function() {}
+    }
+ 
+module.exports = Input;
+
