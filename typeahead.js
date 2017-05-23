@@ -286,7 +286,7 @@ export default class  Typeahead extends React.Component{
                 onMouseOut: this.handleMouseOut},
 
                     props.options.map(function(data, index) {
-                        var isSelected = selectedIndex === index;
+                        let isSelected = selectedIndex === index;
 
                         return (
                             React.createElement("li", {id: isSelected ? activeDescendantId : null,
@@ -491,7 +491,7 @@ export default class  Typeahead extends React.Component{
                     hasHandledKeyDown = true;
 
                     _this.navigate(dir, function() {
-                        var selectedIndex = _this.state.selectedIndex,
+                        let selectedIndex = _this.state.selectedIndex,
                             previousInputValue = _this.previousInputValue,
                             optionData = previousInputValue,
                             optionOffsetTop = 0,
