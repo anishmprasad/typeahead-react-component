@@ -7,7 +7,7 @@
     import getTextDirection from './utils/get_text_direction';
     import PropTypes from 'prop-types';
 
-var noop = function() {};
+let noop = function() {};
 let count = 0;
 export default class  Typeahead extends React.Component{
     static displayName: 'Typeahead'
@@ -93,7 +93,7 @@ export default class  Typeahead extends React.Component{
             }
 
     componentWillMount() {
-        var _this = this,
+        let _this = this,
             uniqueId = this.constructor.getInstanceCount();
 
         _this.userInputValue = null;
@@ -103,7 +103,7 @@ export default class  Typeahead extends React.Component{
     }
 
     componentDidMount() {
-        var addEvent = window.addEventListener,
+        let addEvent = window.addEventListener,
             handleWindowClose = this.handleWindowClose;
 
         // The `focus` event does not bubble, so we must capture it instead.
@@ -115,7 +115,7 @@ export default class  Typeahead extends React.Component{
     }
 
     componentWillUnmount() {
-        var removeEvent = window.removeEventListener,
+        let removeEvent = window.removeEventListener,
             handleWindowClose = this.handleWindowClose;
 
         removeEvent('focus', handleWindowClose, true);
@@ -123,7 +123,7 @@ export default class  Typeahead extends React.Component{
     }
 
     componentWillReceiveProps(nextProps) {
-        var nextValue = nextProps.inputValue,
+        let nextValue = nextProps.inputValue,
             nextOptions = nextProps.options,
             valueLength = nextValue.length,
             isHintVisible = valueLength > 0 &&
@@ -137,7 +137,7 @@ export default class  Typeahead extends React.Component{
     }
 
     render() {
-        var _this = this;
+        let _this = this;
 
         return (
             React.createElement("div", {
@@ -154,7 +154,7 @@ export default class  Typeahead extends React.Component{
     }
 
     renderInput() {
-        var _this = this,
+        let _this = this,
             state = _this.state,
             props = _this.props,
             inputValue = props.inputValue,
@@ -258,7 +258,7 @@ export default class  Typeahead extends React.Component{
     }
 
     renderDropdown() {
-        var _this = this,
+        let _this = this,
             state = _this.state,
             props = _this.props,
             OptionTemplate = props.optionTemplate,
@@ -312,7 +312,7 @@ export default class  Typeahead extends React.Component{
     }
 
     renderAriaMessageForOptions() {
-        var _this = this,
+        let _this = this,
             props = _this.props,
             inputValue = props.inputValue,
             option = props.options[_this.state.selectedIndex] || inputValue;
@@ -325,7 +325,7 @@ export default class  Typeahead extends React.Component{
     }
 
     renderAriaMessageForIncomingOptions() {
-        var props = this.props;
+        let props = this.props;
 
         return (
             React.createElement(AriaStatus, {
@@ -335,7 +335,7 @@ export default class  Typeahead extends React.Component{
     }
 
     showDropdown() {
-        var _this = this;
+        let _this = this;
 
         if (!_this.state.isDropdownVisible) {
             _this.setState({
@@ -347,7 +347,7 @@ export default class  Typeahead extends React.Component{
     }
 
     hideDropdown() {
-        var _this = this;
+        let _this = this;
 
         if (_this.state.isDropdownVisible) {
             _this.setState({
@@ -359,7 +359,7 @@ export default class  Typeahead extends React.Component{
     }
 
     showHint() {
-        var _this = this,
+        let _this = this,
             props = _this.props,
             inputValue = props.inputValue,
             inputValueLength = inputValue.length,
@@ -389,7 +389,7 @@ export default class  Typeahead extends React.Component{
 //        this.setState({
 //                inputValue : event.target.value
 //        });
-        var _this = this;
+        let _this = this;
 //        debugger;
         _this.showHint();
         _this.showDropdown();
@@ -409,7 +409,7 @@ export default class  Typeahead extends React.Component{
     }
 
     handleFocus(event) {
-        var _this = this;
+        let _this = this;
 
         _this.showDropdown();
 //         debugger
@@ -418,14 +418,14 @@ export default class  Typeahead extends React.Component{
     }
 
     handleClick(event) {
-        var _this = this;
+        let _this = this;
 
         _this.showHint();
         _this.props.onInputClick(event);
     }
 
     navigate(direction, callback) {
-        var _this = this,
+        let _this = this,
             minIndex = -1,
             maxIndex = _this.props.options.length - 1,
             index = _this.state.selectedIndex + direction;
@@ -440,7 +440,7 @@ export default class  Typeahead extends React.Component{
     }
 
     handleKeyDown(event) {
-        var _this = this,
+        let _this = this,
             key = event.key,
             props = _this.props,
             input = _this.refs.input,
@@ -534,7 +534,7 @@ export default class  Typeahead extends React.Component{
     }
 
     handleOptionClick(selectedIndex, event) {
-        var _this = this,
+        let _this = this,
             props = _this.props;
 
         _this.focus();
@@ -545,7 +545,7 @@ export default class  Typeahead extends React.Component{
     }
 
     handleOptionMouseOver(selectedIndex) {
-        var _this = this;
+        let _this = this;
 
         if (_this.props.hoverSelect) {
             _this.setSelectedIndex(selectedIndex);
@@ -553,7 +553,7 @@ export default class  Typeahead extends React.Component{
     }
 
     handleMouseOut() {
-        var _this = this;
+        let _this = this;
 
         if (_this.props.hoverSelect) {
             _this.setSelectedIndex(-1);
@@ -561,7 +561,7 @@ export default class  Typeahead extends React.Component{
     }
 
     handleWindowClose(event) {
-        var _this = this,
+        let _this = this,
             target = event.target;
 
         if (target !== window && !ReactDOM.findDOMNode(this).contains(target)) {
