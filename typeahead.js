@@ -26,9 +26,7 @@ export default class  Typeahead extends React.Component{
     //     }())
 
     constructor(props) {
-//        debugger;
         super(props);
-        console.log(this.props)
         this.handleChange = this.handleChange.bind(this);
         this.handleOptionClick = this.handleOptionClick.bind(this);
         this.handleClick = this.handleClick.bind(this);
