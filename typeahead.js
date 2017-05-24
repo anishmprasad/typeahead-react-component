@@ -468,6 +468,7 @@ export default class  Typeahead extends React.Component{
             }
             break;
         case 'Enter':
+            _this.handleChange(event);
             _this.focus();
             _this.hideHint();
             _this.hideDropdown();
