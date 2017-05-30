@@ -18,7 +18,7 @@ If you're developing using npm and CommonJS modules:
 ```
 npm i typeahead-react-component
 ```
-
+```jsx
 React.render(
     // Pass in the desired props
     <Typeahead
