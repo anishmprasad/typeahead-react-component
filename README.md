@@ -70,6 +70,44 @@ When instantiated, it is passed these props:
 **Example**:
 
 ```jsx
+class Template extends React.Component{
+	constructor(props) {
+		super(props);
+		
+	}
+    render() {
+        let classes = cx({
+            'yt-option': true,
+            'yt-selected-option': this.props.isSelected
+        });
+        return (
+            <div className={classes}>
+                {this.renderOption()}
+            </div>
+        );
+    }
+    renderOption() {
+        var optionData = this.props.data,
+            inputValue = this.props.userInputValue;
+        if (optionData.indexOf(inputValue) === 0) {
+            return (
+                <span>
+                    {inputValue}
+                    <strong>
+                        {optionData.slice(inputValue.length)}
+                    </strong>
+                </span>
+            );
+        }
+        return optionData;
+    }
+}
+Template.propTypes = {
+    data: PropTypes.any,
+    inputValue: PropTypes.string,
+    isSelected: PropTypes.bool
+}
+
 <div className="container">
    <Typeahead
        inputValue = {this.state.inputValue}
