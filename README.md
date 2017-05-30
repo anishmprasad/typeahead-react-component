@@ -208,7 +208,41 @@ class Search extends React.Component{
         )
     }
 }
-</div>
+class SearchResults extends React.Component{
+	constructor(props) {
+		super(props);	
+	}
+    SearchResults () {
+        return { results: [] }
+    }
+    render () {
+        return (
+            <div className="search_results">
+                <div>
+                {                         
+                          this.props.results.map((post,i) =>
+                            <div>
+                              <h3 key={i}>{post.name}</h3>
+                                {post.key.map((option,p) => 
+                                <div key={p}>
+                                  <p key={option.cta}>{option.cta}</p>
+                                  <p key={option.sort_bit}>{option.sort_bit}</p>
+                                  <p key={option.type}>{option.type}</p>
+                                  <p key={option.url}>{option.url}</p>
+                                </div>
+                                )}
+                            </div>
+                          )
+
+             	}
+                </div>
+            </div>
+        )
+    }
+}
+SearchResults.propTypes = {
+    results: PropTypes.array
+}
 ```
 #### *string* inputId ***optional***
 This input id is used for the Typeahead's input element.
