@@ -8,6 +8,7 @@ Typeahead, written using the React ES6 library.
 Features
 ========
 * Typeahead with React15 with ES6 Support
+* Typeahead with Elasticsearch client Support (using elasticsearch package)
 
 
 
@@ -22,8 +23,15 @@ npm i typeahead-react-component
 React.render(
     // Pass in the desired props
     <Typeahead
-        placeholder='Search'
-        ...
+        inputValue = {this.state.inputValue}
+        onChange={ this.handleChange }
+        onComplete={this.handleComplete}
+        handleHint={this.handleHint}
+        options={this.state.options}
+        optionTemplate={Template}
+        onOptionChange={this.handleOptionChange}
+        onOptionClick={this.handleOptionClick}
+            
     />,
 
     // Render Typeahead into the container of your choice.
@@ -70,6 +78,10 @@ When instantiated, it is passed these props:
 **Example**:
 
 ```jsx
+let client = new elasticsearch.Client({
+    host: '[API_URL]',
+    log: 'trace'
+})
 class Template extends React.Component{
 	constructor(props) {
 		super(props);
@@ -108,18 +120,94 @@ Template.propTypes = {
     isSelected: PropTypes.bool
 }
 
-<div className="container">
-   <Typeahead
-       inputValue = {this.state.inputValue}
-       onChange={ this.handleChange }
-       onComplete={this.handleComplete}
-       handleHint={this.handleHint}
-       options={this.state.options}
-       optionTemplate={Template}
-       onOptionChange={this.handleOptionChange}
-       onOptionClick={this.handleOptionClick}
-   />
-   <SearchResults results={ this.state.results } />
+class Search extends React.Component{
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleComplete = this.handleComplete.bind(this);
+        this.handleHint = this.handleHint.bind(this);
+        this.handleOptionChange = this.handleOptionChange.bind(this);
+        this.handleOptionClick = this.handleOptionClick.bind(this);
+        this.setInputValue = this.setInputValue.bind(this);
+        this.getOptions = this.getOptions.bind(this);
+        this.handleStoreChange = this.handleStoreChange.bind(this);
+        this.state = {
+            results: [],
+            inputValue: '',
+            options: []
+        }
+    }
+    componentWillMount() {
+        window.hint= [];
+    }
+    handleChange ( event ) {
+        let value = event.target.value;
+        this.setInputValue(value);
+        const search_query = event.target.value
+        client.search({
+            query: search_query,
+            output:"JSON"
+        }).then(function ( body ) {
+            if(body.success == true){
+                for (var key in body.results) {
+                  hint.push(body.results[key].name);
+                }
+                hint = hint.filter(function(n){ return n != undefined }); 
+                hint = hint.slice(1,10)
+                this.setState({ options: hint })
+                this.setState({ results: body.results })
+            }
+        }.bind(this), function ( error ) {
+            console.trace( error.message );
+        });
+    }
+    handleComplete(event, completedInputValue) {
+        this.setState({
+            inputValue: completedInputValue
+        });
+    }
+    handleHint(inputValue, options) {
+        if (new RegExp('^' + inputValue).test(options[0])) {
+            return options[0];
+        }
+        return '';
+    }
+    handleOptionChange(event, option) {
+        this.setInputValue(option);
+    }
+    handleOptionClick(event, option) {
+        this.setInputValue(option);
+    }
+
+    setInputValue(value) {
+        this.setState({
+            inputValue: value
+        });
+    }
+    handleStoreChange(newOptions) {
+        this.setState({
+            options: newOptions
+        });
+    }
+    render () {
+        return (
+            <div className="container">
+                <Typeahead
+                	inputValue = {this.state.inputValue}
+                    onChange={ this.handleChange }
+                    onComplete={this.handleComplete}
+                    handleHint={this.handleHint}
+                    options={this.state.options}
+                    optionTemplate={Template}
+                    onOptionChange={this.handleOptionChange}
+                    onOptionClick={this.handleOptionClick}
+            
+                />
+                <SearchResults results={ this.state.results } />
+            </div>
+        )
+    }
+}
 </div>
 ```
 #### *string* inputId ***optional***
@@ -269,6 +357,14 @@ getMessageForIncomingOptions: function() {
 ```
 
 Don't see your prop? explaining your use case, and I will add it.
+
+Packages Needed
+---------------
+* elasticsearch : ^10.1.3
+* prop-types : ^15.5.4
+* classnames : ^2.1.1
+* react : ^15.4.2
+* react-dom : ^15.4.2
 
 Testing
 -------
