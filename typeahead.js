@@ -16,15 +16,6 @@ export default class  Typeahead extends React.Component{
         return ++count;
     }
 
-
-    // static getInstanceCount: (function() {
-    //         var count = 0;
-
-    //         return function() {
-    //             return ++count;
-    //         };
-    //     }())
-
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -57,29 +48,6 @@ export default class  Typeahead extends React.Component{
        
     }
    
-
-    // static defaultProps() {
-    //     return {
-    //         className: '',
-    //         inputValue: '',
-    //         options: [],
-    //         hoverSelect: true,
-    //         onFocus: noop,
-    //         onKeyDown: noop,
-    //         onChange: noop,
-    //         onInputClick: noop,
-    //         handleHint() {
-    //             return '';
-    //         },
-    //         onOptionClick: noop,
-    //         onOptionChange: noop,
-    //         onComplete:  noop,
-    //         onDropdownOpen: noop,
-    //         onDropdownClose: noop,
-            
-            
-    //     };
-    //  }
 
     getMessageForOption() {
                 return '';
@@ -201,57 +169,6 @@ export default class  Typeahead extends React.Component{
             </div>
         )
 
-//        return (
-//            React.createElement("div", {
-//                style: {
-//                    position: 'relative'
-//                },
-//                className: "react-typeahead-input-container"},
-//                React.createElement(Input, {
-//                    disabled: true,
-//                    role: "presentation",
-//                    "aria-hidden": true,
-//                    dir: inputDirection,
-//                    className: className + ' react-typeahead-hint',
-//                    style: {
-//                        color: 'silver',
-//                        WebkitTextFillColor: 'silver',
-//                        position: 'absolute'
-//                    },
-//                    value: state.isHintVisible ? props.handleHint(inputValue, props.options) : null}
-//                ),
-//                React.createElement(Input, {
-//                    ref: "input",
-//                    role: "combobox",
-//                    "aria-owns": _this.optionsId,
-//                    "aria-expanded": state.isDropdownVisible,
-//                    "aria-autocomplete": "both",
-//                    "aria-activedescendant": _this.activeDescendantId,
-//                    value: _this.props.inputValue,
-//                    spellCheck: false,
-//                    autoComplete: false,
-//                    autoCorrect: false,
-//                    dir: inputDirection,
-//                    onClick: _this.handleClick,
-//                    onFocus: _this.handleFocus,
-//                    onBlur: props.onBlur,
-//                    onChange: _this.handleChange,
-//                    onKeyDown: _this.handleKeyDown,
-//                    id: props.inputId,
-//                    name: props.inputName,
-//                    autoFocus: props.autoFocus,
-//                    placeholder: props.placeholder,
-//                    onSelect: props.onSelect,
-//                    onKeyUp: props.onKeyUp,
-//                    onKeyPress: props.onKeyPress,
-//                    className: className + ' react-typeahead-usertext',
-//                    style: {
-//                        position: 'relative',
-//                        background: 'transparent'
-//                    }}
-//                )
-//            )
-//        );
     }
 
     renderDropdown() {
