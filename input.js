@@ -1,7 +1,5 @@
 'use strict';
 
-// var React = require('react'),
-// ReactDOM = require('react-dom');
 import React from 'react';
 import ReactDOM from 'react-dom'; 
 import PropTypes from 'prop-types';
@@ -15,14 +13,6 @@ export default class  Input extends React.Component{
         this.isCursorAtEnd = this.isCursorAtEnd.bind(this);
     }
     
-
-    // static defaultProps() {
-    //     return {
-    //         value: '',
-    //         onChange: function() {}
-    //     };
-    // }
-
     componentDidUpdate() {
         var _this = this,
             dir = _this.props.dir;
