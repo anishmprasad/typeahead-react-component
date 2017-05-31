@@ -13,7 +13,7 @@
     ]
   ],
   "_from": "typeahead-react-component@latest",
-  "_id": "typeahead-react-component@0.9.5",
+  "_id": "typeahead-react-component@0.9.6",
   "_inCache": true,
   "_location": "/typeahead-react-component",
   "_nodeVersion": "0.12.7",
@@ -86,5 +86,5 @@
     "url": "git+https://github.com/Anishmprasad/typeahead-react-component.git"
   },
   "scripts": {},
-  "version": "0.9.5"
+  "version": "0.9.6"
 }

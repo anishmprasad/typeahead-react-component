@@ -158,7 +158,6 @@ export default class  Typeahead extends React.Component{
             inputValue = props.inputValue,
             className = 'react-typeahead-input',
             inputDirection = getTextDirection(inputValue);
-//        debugger;
         
         return (
             <div className="react-typeahead-input-container" style={{position:'relative'}} >
@@ -388,7 +387,6 @@ export default class  Typeahead extends React.Component{
 //                inputValue : event.target.value
 //        });
         let _this = this;
-//        debugger;
         _this.showHint();
         _this.showDropdown();
         _this.setSelectedIndex(-1);
@@ -397,7 +395,6 @@ export default class  Typeahead extends React.Component{
     }
 
     focus() {
-//        debugger;
 //        console.log(ReactDOM.findDOMNode(this.refs.input));
 //        this.refs.input.ReactDOM.findDOMNode().focus();
 //        ReactDOM.findDOMNode(this)
@@ -410,7 +407,6 @@ export default class  Typeahead extends React.Component{
         let _this = this;
 
         _this.showDropdown();
-//         debugger
 //        _this.refs.input.props.onFocus(event);
         _this.props.onFocus(event);
     }

@@ -58,7 +58,6 @@ export default class  Input extends React.Component{
 
     handleChange(event) {
         var props = this.props;
-
         // There are several React bugs in IE,
         // where the `input`'s `onChange` event is
         // fired even when the value didn't change.
@@ -74,7 +73,6 @@ export default class  Input extends React.Component{
     }
 
     isCursorAtEnd() {
-//        debugger;
         var _this = this,
             inputDOMNode = ReactDOM.findDOMNode(_this),
             valueLength = _this.props.value.length;
