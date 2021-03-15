@@ -411,4 +411,4 @@ Please [file an issue](https://github.com/Anishmprasad/typeahead-react-component
 License
 -------
 The MIT License (MIT)
-Copyright (c) 2017 Anish M Prasad
+Copyright (c) 2021 Anish M Prasad
